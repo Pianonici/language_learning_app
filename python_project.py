@@ -24,7 +24,4 @@ class Dictionary(object):
             return None
 
 
-# Some change
-# more change
-       
-# some other change
+
