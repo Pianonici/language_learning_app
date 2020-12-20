@@ -1,0 +1,101 @@
+Abend, (noun), evening
+allgemein, (adj.), general
+alt, (adj.), old
+ändern, (verb), to change
+Angst, (noun) fear
+annehmen, (verb), to assume
+Auto, (noun), car
+Bedeutung, (noun), meaning
+Beispiel, (noun), example
+bekannt, (adj.), well-known
+Beruf, (noun), profession
+beschreiben, (verb), to describe
+Beziehung, (noun), relationship
+bleiben, (verb), to stay
+Boden, (noun), ground
+Buch,(noun), book
+denken, (verb), to think
+deutlich, (adj.), clear
+einfach, (adj.), easy
+einzeln, (adj.), individual
+Erfahrung, (noun), experience
+Ergebnis, (noun), result
+Familie, (noun),  family
+finden, (verb), to find
+Form, (noun), shape
+Frage, (noun), question
+Frau, (noun), woman
+frei, (adj.), free
+früh, (adj.), early
+ganz, (adj.), whole
+geben, (verb), to give
+gehen, (verb), to go
+genau, (adj.), exact
+Gespräch, (noun), conversation
+glauben, (verb), to believe
+groß, (adj.), big
+gut, (adj.), good
+haben, (verb), to have
+häufig, (adj.), frequent
+hoch, (adj.), high
+Interesse, (noun), interest
+Jahr, (noun), year
+Kind, (noun), child
+klein, (adj.), small
+kommen, (verb), to come
+Krieg, (noun), war
+Kunst, (noun), art
+kurz, (adj.), short
+lang, (adj.), long
+lassen, (verb), to let
+Lehrer, (noun), teacher
+lesen, (verb), to read
+Mann, (noun), man
+Mensch, (noun), human being
+mögen, (verb), to like
+möglich, (adj.), possible
+Morgen, (noun), morning
+Musik, (noun), music
+neu, (adj.), new
+nutzen, (verb), to use
+planen, (verb), to plan
+praktisch, (adj.), practical
+Rahmen, (noun), frame
+Regel, (noun), rule
+Regierung, (noun), government
+richtig, (adj.), correct
+Richtung, (noun), direction
+Rolle, (noun), role
+rund, (adj.), round
+sagen, (verb), to say
+schauen, (verb), to look
+schön, (adj.), beautiful
+schreiben, (verb), to write
+Schritt, (noun), step
+schwierig, (adj.), difficult
+sehen, (verb), to see
+Sein, (verb), to be
+sicher, (adj.), safe
+Sohn, (noun), son
+spät, (adj.), late
+Spiel, (noun), game
+spielen, (verb), to play
+stehen, (verb), to stand
+Stelle, (noun), place
+Stimme, (noun), voice
+suchen, (verb), to search
+Tag, (noun), day
+Tisch, (noun), table
+Tür, (noun), door
+vergleichen, (verb), to compare
+verlassen, (verb), to leave
+völlig, (adj.), complete
+wachsen, (verb), to grow
+Wasser, (noun), water
+wichtig, (adj.), important
+wissen, (verb), to know
+Wohnung, (noun), apartment
+wollen, (verb), to want
+Zeit, (noun), time
+Zukunft, (noun), future
+
