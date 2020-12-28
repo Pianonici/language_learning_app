@@ -1,3 +1,5 @@
+import random
+
 class Dictionary(object):
     
     def __init__(self, file_name):
@@ -22,6 +24,16 @@ class Dictionary(object):
             return self._dictionary_english_to_german[word]
         else:
             return None
+
+    def random_german_word(self):
+        random_entry = random.choice(list(self._dictionary_german_to_english.items()))
+        return random_entry[0]
+    
+    def random_english_word(self):
+        random_entry = random.choice(list(self._dictionary_english_to_german.items()))
+        return random_entry[0]
+    
+
 
 
 
