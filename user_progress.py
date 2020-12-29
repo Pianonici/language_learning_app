@@ -68,6 +68,53 @@ class UserProgress(object):
             # ((Abend, evening), -1)
             file.write(f'{combined_word[0]}, {combined_word[1]}, {score}\n')
         file.close()
+    
+    def show_statistics_to_user(self):
+        star_count = {
+            0 : 0,
+            1 : 0,
+            2 : 0,
+            3 : 0,
+            4 : 0,
+            5 : 0,
+            "total" : 0
+        }
+        for score in self._word_to_score.values():
+            if score < 0:
+                star_count[0] += 1
+            elif score < 2:
+                star_count[1] += 1
+                star_count["total"] += 1
+            elif score < 4:
+                star_count[2] += 1
+                star_count["total"] += 2
+            elif score < 6:
+                star_count[3] += 1
+                star_count["total"] += 3
+            elif score < 8: 
+                star_count[4] += 1
+                star_count["total"] += 4
+            else:
+                star_count[5] += 1 
+                star_count["total"] += 5
+
+        if star_count["total"] < 100:
+            print(f'''Keep studying your vocabulary. Your current STARCOUNT is {star_count["total"]} out of 500!''')
+        elif star_count["total"] < 300:
+            print(f'''You are on the right track. Your current STARCOUNT is {star_count["total"]} out of 500!''')
+        elif star_count["total"] < 500:
+            print(f'''You have been doing a good job studying your vocabulary. Your current STARCOUNT is {star_count["total"]} out of 500!''')
+        else:
+            print(f'''Excellent! Your current STARCOUNT is {star_count["total"]} out of 500!''')
+       
+        print(f'''
+        Words with 5 stars: {star_count[5]}
+        Words with 4 stars: {star_count[4]}
+        Words with 3 stars: {star_count[3]}
+        Words with 2 stars: {star_count[2]}
+        Words with 1 star: {star_count[1]}
+        Words that don't have any star yet: {star_count[0]}
+            ''')
 
     def get_lowest_score_list(self):
         lowest_score = min(self._score_to_words.keys())

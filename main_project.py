@@ -36,6 +36,7 @@ def vocabulary_trainer_mode():
     ''')
     user_name = input('Username: ')
     user_progress = UserProgress(user_name, dictionary._dictionary_german_to_english)
+    user_progress.show_statistics_to_user()
     chosen_language = input("Do you want to translate German words (G) or English words (E) or random (R)").lower()
     while True:
         lowest_score_list = user_progress.get_lowest_score_list()
@@ -55,6 +56,7 @@ def vocabulary_trainer_mode():
                     print("Correct!")
                 elif user_translation == 'E':
                     user_progress.save_progress()
+                    user_progress.show_statistics_to_user()
                     return
                 else:
                     user_progress.subtract_point(german_word, english_word)
@@ -66,12 +68,12 @@ def vocabulary_trainer_mode():
                     print("Correct!")
                 elif user_translation == 'E':
                     user_progress.save_progress()
+                    user_progress.show_statistics_to_user()
                     return
                 else:
                     user_progress.subtract_point(german_word, english_word)
                     print(f'this was not the correct translation. The correct translation is: {german_word}')
 
-     
 
 
 if __name__ == "__main__":
