@@ -3,7 +3,7 @@ import random
 class Dictionary(object):
     
     def __init__(self, file_name):
-        f = open(file_name, 'r')
+        f = open(file_name, 'r', encoding='utf8')
         lines = f.readlines()
         self._dictionary_german_to_english = {}
         self._dictionary_english_to_german = {}
