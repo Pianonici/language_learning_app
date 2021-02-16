@@ -13,6 +13,10 @@ def grammar_mode():
             print("correct")
         elif pronoun in be_are and verb == be_are[pronoun]:
             print("correct")
+        elif pronoun in be_are and verb != be_are[pronoun]:
+            print("incorrect")
+        elif pronoun in be_is and verb != be_is[pronoun]:
+            print("incorrect")
         else:
             print("false")
         next_choice = input("Do you want to practice another sentence? (Y/N)")

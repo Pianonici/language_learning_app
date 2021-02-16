@@ -80,20 +80,23 @@ def vocabulary_trainer_mode():
 def grammar_mode():
     print('''
      In this mode, you can practice the conjunction of the verb to be.
-     To practice that, please write several sentences only using the verb "to be" and pronouns.
      ''')
-    be_is = {"ich": "bin", "du": "bist", "er": "ist", "sie": "ist", "es": "ist"}
-    be_are = {"wir": "sind", "ihr": "seid", "sie": "sind"}
+    be_is = {"Ich": "bin", "Du": "bist", "Er": "ist", "Sie": "ist", "Es": "ist"}
+    be_are = {"Wir": "sind", "Ihr": "seid", "Sie": "sind"}
     while True:
-        sentences = input("Please write: ")
+        sentences = input("Please write a sentence only using a pronoun and the verb to be: ")
         pronoun = str(sentences.split()[0])
         verb = str(sentences.split()[1])
         if pronoun in be_is and verb == be_is[pronoun]:
-            print("correct")
+            print("Your conjunction of the verb to be was correct!")
         elif pronoun in be_are and verb == be_are[pronoun]:
-            print("correct")
+            print("Your conjunction of the verb to be was correct!")
+        elif pronoun in be_is and verb != be_is[pronoun]:
+            print("Your conjunction of the verb to be was incorrect.")
+        elif pronoun in be_are and verb != be_are[pronoun]:
+            print("Your conjunction of the verb to be was incorrect.")
         else:
-            print("false")
+            print("incorrect input")
         next_choice = input("Do you want to practice another sentence? (Y/N)")
         if next_choice == "y":
             continue
