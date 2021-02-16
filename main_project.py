@@ -113,3 +113,6 @@ if __name__ == "__main__":
         elif selected_mode == 'e':
             break
 
+
+# wir sollten noch darauf achten ob wir groß oder klein Buchstaben (input) verlangen
+# und was dann im eigentlichen Befehl steht -> sollte uebereinstimmen
