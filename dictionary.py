@@ -7,10 +7,12 @@ class Dictionary(object):
         lines = f.readlines()
         self._dictionary_german_to_english = {}
         self._dictionary_english_to_german = {}
+        self.speech = {}
         for line in lines:
             line_elements = line.split(', ')
             self._dictionary_german_to_english[line_elements[0]] = line_elements[-1].strip()
             self._dictionary_english_to_german[line_elements[-1].strip()] = line_elements[0]
+            self.speech = line_elements[1]
         f.close()
 
     def german_to_english(self, word):
@@ -32,7 +34,21 @@ class Dictionary(object):
     def random_english_word(self):
         random_entry = random.choice(list(self._dictionary_english_to_german.items()))
         return random_entry[0]
-    
+
+    def noun(self):
+        if self.speech == "(noun)":
+            random_noun = random.choice(list(self._dictionary_english_to_german.items()))
+            return random_noun[0]
+
+    def adjective(self):
+        if self.speech == "(adj.)":
+            random_adj = random.choice(list(self._dictionary_english_to_german.items()))
+            return random_adj[0]
+
+    def verb(self):
+        if self.speech == "(verb)":
+            random_verb = random.choice(list(self._dictionary_english_to_german.items()))
+            return random_verb[0]
 
 
 
