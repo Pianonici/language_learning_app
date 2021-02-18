@@ -84,25 +84,76 @@ def grammar_mode():
     be_is = {"Ich": "bin", "Du": "bist", "Er": "ist", "Sie": "ist", "Es": "ist"}
     be_are = {"Wir": "sind", "Ihr": "seid", "Sie": "sind"}
     while True:
-        sentences = input("Please write a sentence only using a pronoun and the verb to be: ")
-        pronoun = str(sentences.split()[0])
-        verb = str(sentences.split()[1])
-        if pronoun in be_is and verb == be_is[pronoun]:
-            print("Your conjunction of the verb to be was correct!")
-        elif pronoun in be_are and verb == be_are[pronoun]:
-            print("Your conjunction of the verb to be was correct!")
-        elif pronoun in be_is and verb != be_is[pronoun]:
-            print("Your conjunction of the verb to be was incorrect.")
-        elif pronoun in be_are and verb != be_are[pronoun]:
-            print("Your conjunction of the verb to be was incorrect.")
-        else:
-            print("incorrect input")
-        next_choice = input("Do you want to practice another sentence? (Y/N)")
+        sentences = input("Please write a text that consists of several sentences only using a pronoun and the verb 'to be': ")
+        list_of_sentences = [sentence for sentence in sentences.split(".") if sentence.strip()] #omit empty sentences
+        for sentence in list_of_sentences:
+            pronoun = str(sentence.split()[0]).capitalize()
+            verb = str(sentence.split()[1])
+            remainder_of_sentence = " ".join(sentence.split()[2:])
+            if pronoun in be_is and verb == be_is[pronoun]:
+                print("Your conjunction of the verb to be was correct!")
+            elif pronoun in be_are and verb == be_are[pronoun]:
+                print("Your conjunction of the verb to be was correct!")
+            elif pronoun in be_is and verb != be_is[pronoun]:
+                print(f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} {be_is[pronoun]} {remainder_of_sentence}".')
+            elif pronoun in be_are and verb != be_are[pronoun]:
+                print(f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} {be_are[pronoun]} {remainder_of_sentence}".')
+            else:
+                print("incorrect input")
+        next_choice = input("Do you want to practice another sentence? (Y/N)").lower()
         if next_choice == "y":
             continue
         if next_choice == "n":
             break
 
+def mad_libs_game_mode():
+     print('''
+     This mode is a phrasal word game.
+     You do not have to provide any input. 
+     ''')
+     user_name = input('Username: ')
+     while True:
+        dictionary = Dictionary("words.txt")
+        user_progress = UserProgress(user_name, dictionary._dictionary_german_to_english)
+        known_words = user_progress.get_known_words_list()
+        random.shuffle(known_words)
+        list_known_nouns = []
+        list_known_adj = []
+        list_known_verbs = []
+        for element in known_words:
+            if dictionary.is_noun(element):
+                list_known_nouns.append(element)
+            if dictionary.is_adjective(element):
+                list_known_adj.append(element)
+            if dictionary.is_verb(element):
+                list_known_verbs.append(element)
+        while len(list_known_nouns) < 2:
+            list_known_nouns.append(dictionary.random_english_noun())
+        random.shuffle(list_known_nouns)
+        while len(list_known_adj) < 3:
+            list_known_adj.append(dictionary.random_english_adjective())
+        random.shuffle(list_known_adj)
+        while len(list_known_verbs) < 1:
+            list_known_verbs.append(dictionary.random_english_verb())
+        random.shuffle(list_known_verbs)
+
+        determiner1 = 'an' if list_known_nouns[0][0] in 'aeiou' else 'a'
+        determiner2 = 'an' if list_known_adj[1][0] in 'aeiou' else 'a'
+        determiner3 = 'an' if list_known_adj[2][0] in 'aeiou' else 'a'
+        
+        phrasal_template = f'A unicorn is nothing like {determiner1} {list_known_nouns[0]}. ' \
+            f'They are {list_known_adj[0]} creatures. ' \
+            f'Some have {determiner2} {list_known_adj[1]} mane of hair and others have {determiner3} {list_known_adj[2]} {list_known_nouns[1]} on their head. ' \
+            f'I would love {list_known_verbs[0]} a unicorn one day.'
+        
+        print(phrasal_template)
+
+        next_choice = input("Do you want to see more phrases? (Y/N)").lower()
+        if next_choice == "y":
+            continue
+        else:
+            break
+    
 
 if __name__ == "__main__":
     while True:
@@ -113,6 +164,8 @@ if __name__ == "__main__":
             vocabulary_trainer_mode()
         elif selected_mode == "g":
             grammar_mode()
+        elif selected_mode == "m":
+            mad_libs_game_mode()
         elif selected_mode == 'e':
             break
 

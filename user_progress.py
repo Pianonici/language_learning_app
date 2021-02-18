@@ -119,7 +119,15 @@ class UserProgress(object):
     def get_lowest_score_list(self):
         lowest_score = min(self._score_to_words.keys())
         return copy(self._score_to_words[lowest_score])
-            
+
+    def get_known_words_list(self): #for mad_libs game
+        known_words = []
+        for combined_word, score in self._word_to_score.items():
+            if score >= 5:
+                known_words.append(combined_word[1])
+        return known_words 
+
+
     def __del__(self):
         self.save_progress()
          

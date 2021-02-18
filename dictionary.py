@@ -7,12 +7,15 @@ class Dictionary(object):
         lines = f.readlines()
         self._dictionary_german_to_english = {}
         self._dictionary_english_to_german = {}
-        self.speech = {}  # fuer noun, verb, adj?
+        self._dictionary_english_to_part_of_speech = {}
+        self._dictionary_part_of_speech_to_english = {"(noun)": [], "(adj.)": [], "(verb)": []}
         for line in lines:
             line_elements = line.split(', ')
             self._dictionary_german_to_english[line_elements[0]] = line_elements[-1].strip()
             self._dictionary_english_to_german[line_elements[-1].strip()] = line_elements[0]
-            self.speech = line_elements[1]  # fuer noun, verb, adj?
+            self._dictionary_english_to_part_of_speech[line_elements[-1].strip()] = line_elements[1]
+            self._dictionary_part_of_speech_to_english[line_elements[1]].append(line_elements[-1].strip())
+            
         f.close()
 
     def german_to_english(self, word):
@@ -35,20 +38,32 @@ class Dictionary(object):
         random_entry = random.choice(list(self._dictionary_english_to_german.items()))
         return random_entry[0]
 
-    def noun(self):
-        if self.speech == "(noun)":
-            random_noun = random.choice(list(self._dictionary_english_to_german.items()))
-            return random_noun[0]
+    def is_noun(self, word):
+        if self._dictionary_english_to_part_of_speech[word] == "(noun)":
+            return True
+        else:
+            return False
 
-    def adjective(self):
-        if self.speech == "(adj.)":
-            random_adj = random.choice(list(self._dictionary_english_to_german.items()))
-            return random_adj[0]
+    def is_adjective(self, word):
+        if self._dictionary_english_to_part_of_speech[word] == "(adj.)":
+            return True
+        else:
+            return False
 
-    def verb(self):
-        if self.speech == "(verb)":
-            random_verb = random.choice(list(self._dictionary_english_to_german.items()))
-            return random_verb[0]
+    def is_verb(self, word):
+        if self._dictionary_english_to_part_of_speech[word] == "(verb)":
+            return True
+        else:
+            return False
+
+    def random_english_noun(self):
+        return random.choice(self._dictionary_part_of_speech_to_english["(noun)"])
+
+    def random_english_adjective(self):
+        return random.choice(self._dictionary_part_of_speech_to_english["(adj.)"])
+
+    def random_english_verb(self):
+        return random.choice(self._dictionary_part_of_speech_to_english["(verb)"])
 
 
 
