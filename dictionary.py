@@ -1,7 +1,7 @@
 import random
 
 class Dictionary(object):
-    
+
     def __init__(self, file_name):
         f = open(file_name, 'r', encoding='utf8')
         lines = f.readlines()
@@ -21,9 +21,9 @@ class Dictionary(object):
     def german_to_english(self, word):
         if word in self._dictionary_german_to_english:
             return self._dictionary_german_to_english[word]
-        else: 
+        else:
             return None
-    
+
     def english_to_german(self, word):
         if word in self._dictionary_english_to_german:
             return self._dictionary_english_to_german[word]
@@ -33,7 +33,7 @@ class Dictionary(object):
     def random_german_word(self):
         random_entry = random.choice(list(self._dictionary_german_to_english.items()))
         return random_entry[0]
-    
+
     def random_english_word(self):
         random_entry = random.choice(list(self._dictionary_english_to_german.items()))
         return random_entry[0]
@@ -64,9 +64,3 @@ class Dictionary(object):
 
     def random_english_verb(self):
         return random.choice(self._dictionary_part_of_speech_to_english["(verb)"])
-
-
-
-
-
-
