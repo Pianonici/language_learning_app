@@ -23,7 +23,7 @@ Ergebnis, result, -1
 Familie, family, -1
 finden, to find, -1
 Form, shape, -1
-Frage, question, 0
+Frage, question, -1
 Frau, woman, -1
 frei, free, -1
 früh, early, -1
@@ -96,5 +96,5 @@ wichtig, important, -1
 wissen, to know, -1
 Wohnung, apartment, -1
 wollen, to want, -1
-Zeit, time, 0
+Zeit, time, -1
 Zukunft, future, -1
