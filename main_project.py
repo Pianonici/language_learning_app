@@ -40,13 +40,13 @@ def vocabulary_trainer_mode():
     Then you will decide which language to translate from. 
     While translating, if you want to exit, just press E.
     ''')
-    user_name = input('Username: ')
+    user_name = input('Username: ')  # to save the users' progress
 
     # the dictionary_german_to_english is needed to track the user progress for each word
     user_progress = UserProgress(user_name, dictionary._dictionary_german_to_english)
 
     user_progress.show_statistics_to_user()
-    chosen_language = input("Do you want to translate German words (G) or English words (E) or random (R)").lower()
+    chosen_language = input("Do you want to translate German words (G) or English words (E) or random (R)?").lower()
     while True:
 
         # Get list of words with the lowest score and randomize the order.
@@ -95,13 +95,14 @@ def vocabulary_trainer_mode():
 
 def grammar_mode():
     print('''
-     In this mode, you can practice the conjunction of the verb to be.
+     In this mode, you can practice the conjunction of the verb to be in German.
      ''')
     be_is = {"Ich": "bin", "Du": "bist", "Er": "ist", "Sie": "ist", "Es": "ist"}
     be_are = {"Wir": "sind", "Ihr": "seid", "Sie": "sind"}
     while True:
         sentences = input(
-            "Please write a text that consists of several sentences only using a pronoun and the verb 'to be': ")
+            "Please write a text that consists of several sentences only using a pronoun and the verb "
+            "'to be' in German: ")
         # .split(".") returns a list of sentences separated by "."
         list_of_sentences = [sentence for sentence in sentences.split(".") if sentence.strip()]  # omit empty sentences
         for sentence in list_of_sentences:
@@ -125,7 +126,8 @@ def grammar_mode():
                     f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} '
                     f'{be_are[pronoun]} {remainder_of_sentence}".')
             else:
-                print("incorrect input")
+                print("Incorrect input. The first word should be a pronoun and the second one a form "
+                      "of to be in German.")
         next_choice = input("Do you want to practice another sentence? (Y/N)").lower()
         if next_choice == "y":
             continue
