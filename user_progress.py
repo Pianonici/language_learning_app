@@ -1,6 +1,5 @@
 from pathlib import Path
 from copy import copy
-import random
 
 
 class UserProgress(object):
@@ -13,7 +12,7 @@ class UserProgress(object):
 
         # Check if the file already exists. If it does, read the user progress
         if self._filepath.is_file():
-            # Open the file if it already exists; 'utf8'is a charachter set that includes 'Umlaute' (ä,ö,ü)
+            # Open the file if it already exists; 'utf8'is a character set that includes 'Umlaute' (ä,ö,ü)
             file = self._filepath.open('r', encoding='utf8')
             # Each line is a string that looks like: "Abend, evening, -1"
             lines = file.readlines()  # gives us a list of lines
@@ -123,8 +122,8 @@ class UserProgress(object):
         elif star_count["total"] < 300:
             print(f'''You are on the right track. Your current STARCOUNT is {star_count["total"]} out of 500!''')
         elif star_count["total"] < 500:
-            print(
-                f'''You have been doing a good job studying your vocabulary. Your current STARCOUNT is {star_count["total"]} out of 500!''')
+            print(f'''You have been doing a good job studying your vocabulary. Your current STARCOUNT is
+                  {star_count["total"]} out of 500!''')
         else:
             print(f'''Excellent! Your current STARCOUNT is {star_count["total"]} out of 500!''')
 

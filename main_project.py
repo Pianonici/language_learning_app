@@ -118,10 +118,12 @@ def grammar_mode():
                 print("Your conjunction of the verb to be was correct!")
             elif pronoun in be_is and verb != be_is[pronoun]:
                 print(
-                    f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} {be_is[pronoun]} {remainder_of_sentence}".')
+                    f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} '
+                    f'{be_is[pronoun]} {remainder_of_sentence}".')
             elif pronoun in be_are and verb != be_are[pronoun]:
                 print(
-                    f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} {be_are[pronoun]} {remainder_of_sentence}".')
+                    f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} '
+                    f'{be_are[pronoun]} {remainder_of_sentence}".')
             else:
                 print("incorrect input")
         next_choice = input("Do you want to practice another sentence? (Y/N)").lower()
@@ -175,7 +177,8 @@ def mad_libs_game_mode():
 
         phrasal_template = f'A unicorn is nothing like {determiner1} {list_known_nouns[0]}. ' \
                            f'They are {list_known_adj[0]} creatures. ' \
-                           f'Some have {determiner2} {list_known_adj[1]} mane of hair and others have {determiner3} {list_known_adj[2]} {list_known_nouns[1]} on their head. ' \
+                           f'Some have {determiner2} {list_known_adj[1]} mane of hair and others have {determiner3} ' \
+                           f'{list_known_adj[2]} {list_known_nouns[1]} on their head. ' \
                            f'I would love {list_known_verbs[0]} a unicorn one day.'
 
         print(phrasal_template)
@@ -201,4 +204,3 @@ if __name__ == "__main__":
             mad_libs_game_mode()
         elif selected_mode == 'e':
             break
-

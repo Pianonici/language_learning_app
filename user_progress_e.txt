@@ -18,7 +18,7 @@ denken, to think, -1
 deutlich, clear, -1
 einfach, easy, -1
 einzeln, individual, -1
-Erfahrung, experience, -1
+Erfahrung, experience, -2
 Ergebnis, result, -1
 Familie, family, -1
 finden, to find, -1
@@ -58,7 +58,7 @@ Morgen, morning, -1
 Musik, music, -1
 neu, new, -1
 nutzen, to use, -1
-planen, to plan, -1
+planen, to plan, 0
 praktisch, practical, -1
 Rahmen, frame, -1
 Regel, rule, -1
@@ -94,7 +94,7 @@ wachsen, to grow, -1
 Wasser, water, -1
 wichtig, important, -1
 wissen, to know, -1
-Wohnung, apartment, -1
+Wohnung, apartment, 0
 wollen, to want, -1
 Zeit, time, 0
 Zukunft, future, -1
