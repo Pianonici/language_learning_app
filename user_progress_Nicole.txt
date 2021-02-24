@@ -3,9 +3,9 @@ allgemein, general, 0
 alt, old, -1
 ändern, to change, -1
 Angst, fear, -1
-annehmen, to assume, -2
+annehmen, to assume, -1
 Auto, car, -1
-Bedeutung, meaning, -1
+Bedeutung, meaning, 0
 Beispiel, example, 0
 bekannt, well-known, -1
 Beruf, profession, 0
@@ -17,33 +17,33 @@ Buch, book, -1
 denken, to think, -1
 deutlich, clear, -1
 einfach, easy, -1
-einzeln, individual, -2
+einzeln, individual, -1
 Erfahrung, experience, -1
 Ergebnis, result, -1
 Familie, family, 0
 finden, to find, -1
 Form, shape, -1
-Frage, question, -1
+Frage, question, 0
 Frau, woman, -1
 frei, free, 0
 früh, early, -1
 ganz, whole, -1
 geben, to give, 0
 gehen, to go, 0
-genau, exact, -1
+genau, exact, 0
 Gespräch, conversation, -1
-glauben, to believe, -1
+glauben, to believe, -2
 groß, big, 0
 gut, good, -1
 haben, to have, 0
 häufig, frequent, -1
 hoch, high, -1
-Interesse, interest, -1
+Interesse, interest, 0
 Jahr, year, 0
 Kind, child, -1
 klein, small, -1
 kommen, to come, -1
-Krieg, war, -1
+Krieg, war, 0
 Kunst, art, 0
 kurz, short, 0
 lang, long, -1
@@ -52,26 +52,26 @@ Lehrer, teacher, -1
 lesen, to read, -1
 Mann, man, 0
 Mensch, human being, -1
-mögen, to like, -1
+mögen, to like, 0
 möglich, possible, -1
 Morgen, morning, -1
 Musik, music, 0
-neu, new, -1
+neu, new, 0
 nutzen, to use, -1
 planen, to plan, -1
 praktisch, practical, 0
 Rahmen, frame, 0
 Regel, rule, -1
 Regierung, government, 0
-richtig, correct, -1
+richtig, correct, 0
 Richtung, direction, -1
 Rolle, role, -1
 rund, round, -1
 sagen, to say, -1
-schauen, to look, -1
+schauen, to look, -2
 schön, beautiful, 0
-schreiben, to write, -1
-Schritt, step, -1
+schreiben, to write, 0
+Schritt, step, -2
 schwierig, difficult, -1
 sehen, to see, -1
 sein, to be, 0
@@ -89,12 +89,12 @@ Tisch, table, -1
 Tür, door, -1
 vergleichen, to compare, -1
 verlassen, to leave, -1
-völlig, complete, -2
+völlig, complete, 0
 wachsen, to grow, -1
 Wasser, water, 0
 wichtig, important, -1
 wissen, to know, -1
-Wohnung, apartment, -2
+Wohnung, apartment, -1
 wollen, to want, -1
 Zeit, time, -1
 Zukunft, future, -1

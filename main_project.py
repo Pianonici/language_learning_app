@@ -1,7 +1,7 @@
 from dictionary import Dictionary
-import random
 from user_progress import UserProgress
 
+import random
 
 def dictionary_mode():
     dictionary = Dictionary("words.txt")
@@ -9,14 +9,14 @@ def dictionary_mode():
         chosen_language = input("Would you like to translate from German to English (press GE) or from English to German (press EG)?")
         if chosen_language == 'GE':
             word_to_translate = input("which word do you want to translate?")
-            translate_result = (dictionary.german_to_english(word_to_translate))
+            translate_result = (dictionary.german_to_english(word_to_translate)) # returns None if the word is not in the dictionary
             if translate_result is not None:
                 print(translate_result)
             else:
                 print("The word you want to translate is not in the dictionary.")
         if chosen_language == 'EG':
             word_to_translate = input("which word do you want to translate?")
-            translate_result = (dictionary.english_to_german(word_to_translate))
+            translate_result = (dictionary.english_to_german(word_to_translate)) # returns None if the word is not in the dictionary
             if translate_result is not None:
                 print(translate_result)
             else:
@@ -37,13 +37,23 @@ def vocabulary_trainer_mode():
     While translating, if you want to exit, just press E.
     ''')
     user_name = input('Username: ')
+
+    #the dictionary_german_to_english is needed to track the user progress for each word
     user_progress = UserProgress(user_name, dictionary._dictionary_german_to_english)
+    
     user_progress.show_statistics_to_user()
     chosen_language = input("Do you want to translate German words (G) or English words (E) or random (R)").lower()
     while True:
-        lowest_score_list = user_progress.get_lowest_score_list()
+
+        #Get list of words with the lowest score and randomize the order. 
+        #Each element of the list is a tuple of (German word, English word)
+        lowest_score_list = user_progress.get_lowest_score_list() 
         random.shuffle(lowest_score_list)
+
+        #Go through each word of the list and ask the user to translate it.
         while lowest_score_list:
+
+            #Pops a tuple from the randomized list, which the user then has to translate
             german_word, english_word = lowest_score_list.pop()
 
             if chosen_language == 'r':
@@ -56,6 +66,7 @@ def vocabulary_trainer_mode():
                 if user_translation == english_word:
                     user_progress.add_point(german_word, english_word)
                     print("Correct!")
+                #User specified they would like to exit.
                 elif user_translation == 'E':
                     user_progress.save_progress()
                     user_progress.show_statistics_to_user()
@@ -68,6 +79,7 @@ def vocabulary_trainer_mode():
                 if user_translation == german_word:
                     user_progress.add_point(german_word, english_word)
                     print("Correct!")
+                #User specified they would like to exit.
                 elif user_translation == 'E':
                     user_progress.save_progress()
                     user_progress.show_statistics_to_user()
@@ -85,10 +97,13 @@ def grammar_mode():
     be_are = {"Wir": "sind", "Ihr": "seid", "Sie": "sind"}
     while True:
         sentences = input("Please write a text that consists of several sentences only using a pronoun and the verb 'to be': ")
+        #.split(".") returns a list of sentences separated by "." 
         list_of_sentences = [sentence for sentence in sentences.split(".") if sentence.strip()] #omit empty sentences
         for sentence in list_of_sentences:
-            pronoun = str(sentence.split()[0]).capitalize()
+            #.split() returns a list of words in the sentence. The first word must be the pronoun, the second word must be the verb.
+            pronoun = str(sentence.split()[0]).capitalize() 
             verb = str(sentence.split()[1])
+            #" ".join(sentence.split()[2:]) takes a list of all the words after the verb and combines them into a string, putting a " " between the elements  
             remainder_of_sentence = " ".join(sentence.split()[2:])
             if pronoun in be_is and verb == be_is[pronoun]:
                 print("Your conjunction of the verb to be was correct!")
@@ -114,9 +129,13 @@ def mad_libs_game_mode():
      user_name = input('Username: ')
      while True:
         dictionary = Dictionary("words.txt")
+        #the dictionary_german_to_english is needed to track the user progress for each word
         user_progress = UserProgress(user_name, dictionary._dictionary_german_to_english)
+        #known_words are English words with a score of at least 5
         known_words = user_progress.get_known_words_list()
         random.shuffle(known_words)
+
+        #Categorize known words by part of speech.
         list_known_nouns = []
         list_known_adj = []
         list_known_verbs = []
@@ -127,6 +146,8 @@ def mad_libs_game_mode():
                 list_known_adj.append(element)
             if dictionary.is_verb(element):
                 list_known_verbs.append(element)
+
+        #Fill in lists with random words if needed.
         while len(list_known_nouns) < 2:
             list_known_nouns.append(dictionary.random_english_noun())
         random.shuffle(list_known_nouns)
@@ -137,6 +158,7 @@ def mad_libs_game_mode():
             list_known_verbs.append(dictionary.random_english_verb())
         random.shuffle(list_known_verbs)
 
+        #Fix determiner if the word starts with a vowel.
         determiner1 = 'an' if list_known_nouns[0][0] in 'aeiou' else 'a'
         determiner2 = 'an' if list_known_adj[1][0] in 'aeiou' else 'a'
         determiner3 = 'an' if list_known_adj[2][0] in 'aeiou' else 'a'
@@ -154,7 +176,7 @@ def mad_libs_game_mode():
         else:
             break
     
-
+#this is where the program starts execution 
 if __name__ == "__main__":
     while True:
         selected_mode = input("choose a mode (D, V, G, M), or press E to exit: ").lower()
