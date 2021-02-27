@@ -100,10 +100,8 @@ def grammar_mode():
     be_is = {"Ich": "bin", "Du": "bist", "Er": "ist", "Sie": "ist", "Es": "ist"}
     be_are = {"Wir": "sind", "Ihr": "seid", "Sie": "sind"}
     while True:
-        sentences = input('''
-            Please write a text that consists of several sentences
-            only using a pronoun and the verb "to be" in German: 
-            ''')
+        sentences = input('Please write a text that consists of several sentences '
+                          'only using a pronoun and the verb "to be" in German: \n')
         # .split(".") returns a list of sentences separated by "."
         list_of_sentences = [sentence for sentence in sentences.split(".") if sentence.strip()]  # omit empty sentences
         for sentence in list_of_sentences:
