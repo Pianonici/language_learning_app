@@ -84,7 +84,7 @@ def vocabulary_trainer_mode():
                     user_progress.add_point(german_word, english_word)
                     print("Correct!")
                 # User specified they would like to exit.
-                elif user_translation == 'E':
+                elif user_translation == 'exit':
                     user_progress.save_progress()
                     user_progress.show_statistics_to_user()
                     return

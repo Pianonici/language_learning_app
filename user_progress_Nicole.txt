@@ -17,12 +17,12 @@ Buch, book, 0
 denken, to think, 0
 deutlich, clear, -1
 einfach, easy, 0
-einzeln, individual, -1
+einzeln, individual, 0
 Erfahrung, experience, 0
 Ergebnis, result, 0
 Familie, family, 0
 finden, to find, 0
-Form, shape, -1
+Form, shape, -2
 Frage, question, 0
 Frau, woman, 0
 frei, free, 0
@@ -31,12 +31,12 @@ ganz, whole, -1
 geben, to give, 0
 gehen, to go, 0
 genau, exact, 0
-Gespräch, conversation, -3
+Gespräch, conversation, -2
 glauben, to believe, 0
 groß, big, 0
 gut, good, 0
 haben, to have, 0
-häufig, frequent, -4
+häufig, frequent, -2
 hoch, high, 0
 Interesse, interest, 0
 Jahr, year, 0
@@ -47,7 +47,7 @@ Krieg, war, 0
 Kunst, art, 0
 kurz, short, 0
 lang, long, 0
-lassen, to let, -1
+lassen, to let, -2
 Lehrer, teacher, 0
 lesen, to read, 0
 Mann, man, 0
@@ -57,7 +57,7 @@ möglich, possible, 0
 Morgen, morning, 0
 Musik, music, 0
 neu, new, 0
-nutzen, to use, -1
+nutzen, to use, -2
 planen, to plan, 0
 praktisch, practical, 0
 Rahmen, frame, 0
@@ -72,7 +72,7 @@ schauen, to look, 0
 schön, beautiful, 0
 schreiben, to write, 0
 Schritt, step, 0
-schwierig, difficult, -1
+schwierig, difficult, -2
 sehen, to see, -1
 sein, to be, 0
 sicher, safe, 0
@@ -81,12 +81,12 @@ spät, late, 0
 Spiel, game, 0
 spielen, to play, 0
 stehen, to stand, 0
-Stelle, place, -3
+Stelle, place, -2
 Stimme, voice, 0
 suchen, to search, 0
 Tag, day, 0
 Tisch, table, 0
-Tür, door, -1
+Tür, door, -2
 vergleichen, to compare, 0
 verlassen, to leave, 0
 völlig, complete, 0
@@ -96,5 +96,5 @@ wichtig, important, 0
 wissen, to know, 0
 Wohnung, apartment, 0
 wollen, to want, 0
-Zeit, time, -1
+Zeit, time, -2
 Zukunft, future, 0
