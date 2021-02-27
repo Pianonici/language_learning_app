@@ -8,9 +8,9 @@ def dictionary_mode():
     dictionary = Dictionary("words.txt")
     while True:
         chosen_language = input(
-            "Would you like to translate from German to English (press GE) or from English to German (press EG)?")
+            "Would you like to translate from German to English (press GE) or from English to German (press EG)? ")
         if chosen_language == 'GE':
-            word_to_translate = input("which word do you want to translate?")
+            word_to_translate = input("which word do you want to translate? ")
             translate_result = (
                 dictionary.german_to_english(word_to_translate))  # returns None if the word is not in the dictionary
             if translate_result is not None:
@@ -18,14 +18,14 @@ def dictionary_mode():
             else:
                 print("The word you want to translate is not in the dictionary.")
         if chosen_language == 'EG':
-            word_to_translate = input("which word do you want to translate?")
+            word_to_translate = input("which word do you want to translate? ")
             translate_result = (
                 dictionary.english_to_german(word_to_translate))  # returns None if the word is not in the dictionary
             if translate_result is not None:
                 print(translate_result)
             else:
                 print("The word you want to translate is not in the dictionary.")
-        next_choice = input("Do you want to translate another word (Y / N)?").lower()
+        next_choice = input("Do you want to translate another word (Y/N)? ").lower()
         if next_choice == 'y':
             continue
         if next_choice == 'n':
@@ -46,7 +46,7 @@ def vocabulary_trainer_mode():
     user_progress = UserProgress(user_name, dictionary.dictionary_german_to_english)
 
     user_progress.show_statistics_to_user()
-    chosen_language = input("Do you want to translate German words (G) or English words (E) or random (R)?").lower()
+    chosen_language = input("Do you want to translate German words (G) or English words (E) or random (R)? ").lower()
     while True:
 
         # Get list of words with the lowest score and randomize the order.
@@ -95,7 +95,7 @@ def vocabulary_trainer_mode():
 
 def grammar_mode():
     print('''
-     In this mode, you can practice the conjunction of the verb to be in German.
+     In this mode, you can practice the conjugation of the verb "to be" in German.
      ''')
     be_is = {"Ich": "bin", "Du": "bist", "Er": "ist", "Sie": "ist", "Es": "ist"}
     be_are = {"Wir": "sind", "Ihr": "seid", "Sie": "sind"}
@@ -114,21 +114,21 @@ def grammar_mode():
             # string, putting a " " between the elements
             remainder_of_sentence = " ".join(sentence.split()[2:])
             if pronoun in be_is and verb == be_is[pronoun]:
-                print("Your conjunction of the verb to be was correct!")
+                print("Your conjugation of the verb to be was correct!")
             elif pronoun in be_are and verb == be_are[pronoun]:
-                print("Your conjunction of the verb to be was correct!")
+                print("Your conjugation of the verb to be was correct!")
             elif pronoun in be_is and verb != be_is[pronoun]:
                 print(
-                    f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} '
+                    f'Your conjugation of the verb to be was incorrect. The correct conjugation is "{pronoun} '
                     f'{be_is[pronoun]} {remainder_of_sentence}".')
             elif pronoun in be_are and verb != be_are[pronoun]:
                 print(
-                    f'Your conjunction of the verb to be was incorrect. The correct conjugation is "{pronoun} '
+                    f'Your conjugation of the verb to be was incorrect. The correct conjugation is "{pronoun} '
                     f'{be_are[pronoun]} {remainder_of_sentence}".')
             else:
                 print("Incorrect input. The first word should be a pronoun and the second one a form "
                       "of to be in German.")
-        next_choice = input("Do you want to practice another sentence? (Y/N)").lower()
+        next_choice = input("Do you want to practice another sentence (Y/N)? ").lower()
         if next_choice == "y":
             continue
         if next_choice == "n":
@@ -178,14 +178,14 @@ def mad_libs_game_mode():
         determiner3 = 'an' if list_known_adj[2][0] in 'aeiou' else 'a'
 
         phrasal_template = f'A unicorn is nothing like {determiner1} {list_known_nouns[0]}. ' \
-                           f'They are {list_known_adj[0]} creatures. ' \
+                           f'They are {list_known_adj[0]} creatures. \n' \
                            f'Some have {determiner2} {list_known_adj[1]} mane of hair and others have {determiner3} ' \
                            f'{list_known_adj[2]} {list_known_nouns[1]} on their head. ' \
                            f'I would love {list_known_verbs[0]} a unicorn one day.'
 
         print(phrasal_template)
 
-        next_choice = input("Do you want to see more phrases? (Y/N)").lower()
+        next_choice = input("Do you want to see more phrases (Y/N)? ").lower()
         if next_choice == "y":
             continue
         else:
