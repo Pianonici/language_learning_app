@@ -16,13 +16,13 @@ print(madlibsgame_mode())
 
 
 def adjective(self):
-    words = (list(self._dictionary_english_to_german.items()))
+    words = (list(self.dictionary_english_to_german.items()))
     adj = [word for word in words if self.speech == "(adj.)"]
     return random.choice(adj)
 
 def adjective(self):
     if self.speech == "(adj.)":
-        random_adj = random.choice(list(self._dictionary_english_to_german.items()))
+        random_adj = random.choice(list(self.dictionary_english_to_german.items()))
         return random_adj[0]
 
 

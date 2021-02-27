@@ -9,8 +9,8 @@ class Dictionary(object):
         lines = f.readlines()
 
         # creating dictionaries for both directions (English-German, German-English)
-        self._dictionary_german_to_english = {}
-        self._dictionary_english_to_german = {}
+        self.dictionary_german_to_english = {}
+        self.dictionary_english_to_german = {}
 
         # creating a dictionary to keep track of the part of speech of English words (needed for the mad-libs game)
         self._dictionary_english_to_part_of_speech = {}
@@ -25,8 +25,8 @@ class Dictionary(object):
             german_word = line_elements[0]
             part_of_speech = line_elements[1]
             english_word = line_elements[2].strip()  # .strip() in order to remove whitespaces at the end of the line
-            self._dictionary_german_to_english[german_word] = english_word
-            self._dictionary_english_to_german[english_word] = german_word
+            self.dictionary_german_to_english[german_word] = english_word
+            self.dictionary_english_to_german[english_word] = german_word
             self._dictionary_english_to_part_of_speech[english_word] = part_of_speech
             self._dictionary_part_of_speech_to_english[part_of_speech].append(english_word)
 
@@ -34,23 +34,23 @@ class Dictionary(object):
 
     # The following 2 functions are used to get the correct translations of words
     def german_to_english(self, word):
-        if word in self._dictionary_german_to_english:
-            return self._dictionary_german_to_english[word]
+        if word in self.dictionary_german_to_english:
+            return self.dictionary_german_to_english[word]
         else:
             return None
 
     def english_to_german(self, word):
-        if word in self._dictionary_english_to_german:
-            return self._dictionary_english_to_german[word]
+        if word in self.dictionary_english_to_german:
+            return self.dictionary_english_to_german[word]
         else:
             return None
 
     # The following 2 functions are used to get random words (keys) from the dictionary
     def random_german_word(self):
-        return random.choice(list(self._dictionary_german_to_english.keys()))
+        return random.choice(list(self.dictionary_german_to_english.keys()))
 
     def random_english_word(self):
-        return random.choice(list(self._dictionary_english_to_german.keys()))
+        return random.choice(list(self.dictionary_english_to_german.keys()))
 
     # the next three functions check for the part of speech of a word
     def is_noun(self, word):

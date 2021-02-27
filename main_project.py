@@ -38,12 +38,12 @@ def vocabulary_trainer_mode():
     In this mode, you have to translate given vocabulary. 
     First you have to provide your username in order to save your progress. 
     Then you will decide which language to translate from. 
-    While translating, if you want to exit, just press E.
+    While translating, if you want to exit, just type "exit".
     ''')
     user_name = input('Username: ')  # to save the users' progress
 
     # the dictionary_german_to_english is needed to track the user progress for each word
-    user_progress = UserProgress(user_name, dictionary._dictionary_german_to_english)
+    user_progress = UserProgress(user_name, dictionary.dictionary_german_to_english)
 
     user_progress.show_statistics_to_user()
     chosen_language = input("Do you want to translate German words (G) or English words (E) or random (R)?").lower()
@@ -71,7 +71,7 @@ def vocabulary_trainer_mode():
                     user_progress.add_point(german_word, english_word)
                     print("Correct!")
                 # User specified they would like to exit.
-                elif user_translation == 'E':
+                elif user_translation == 'exit':
                     user_progress.save_progress()
                     user_progress.show_statistics_to_user()
                     return
@@ -144,7 +144,7 @@ def mad_libs_game_mode():
     while True:
         dictionary = Dictionary("words.txt")
         # the dictionary_german_to_english is needed to track the user progress for each word
-        user_progress = UserProgress(user_name, dictionary._dictionary_german_to_english)
+        user_progress = UserProgress(user_name, dictionary.dictionary_german_to_english)
         # known_words are English words with a score of at least 5
         known_words = user_progress.get_known_words_list()
         random.shuffle(known_words)
@@ -195,7 +195,7 @@ def mad_libs_game_mode():
 # this is where the program starts execution
 if __name__ == "__main__":
     while True:
-        selected_mode = input("choose a mode (D, V, G, M), or press E to exit: ").lower()
+        selected_mode = input("choose a mode (D, V, G, M), or type 'exit' to exit: ").lower()
         if selected_mode == 'd':
             dictionary_mode()
         elif selected_mode == 'v':
@@ -204,5 +204,5 @@ if __name__ == "__main__":
             grammar_mode()
         elif selected_mode == "m":
             mad_libs_game_mode()
-        elif selected_mode == 'e':
+        elif selected_mode == 'exit':
             break
