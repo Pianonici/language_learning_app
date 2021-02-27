@@ -195,6 +195,14 @@ def mad_libs_game_mode():
 # this is where the program starts execution
 if __name__ == "__main__":
     while True:
+        print('''
+        In this Language Learning App, you can choose between four different modes:
+        the Dictionary mode (D),
+        the Vocabulary Trainer mode (V), 
+        the Grammar mode(G), 
+        the Mad Libs Game (M)
+        ''')
+
         selected_mode = input("choose a mode (D, V, G, M), or type 'exit' to exit: ").lower()
         if selected_mode == 'd':
             dictionary_mode()

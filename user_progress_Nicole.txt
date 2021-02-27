@@ -57,7 +57,7 @@ möglich, possible, 0
 Morgen, morning, 0
 Musik, music, 0
 neu, new, 0
-nutzen, to use, -2
+nutzen, to use, -1
 planen, to plan, 0
 praktisch, practical, 0
 Rahmen, frame, 0
@@ -81,12 +81,12 @@ spät, late, 0
 Spiel, game, 0
 spielen, to play, 0
 stehen, to stand, 0
-Stelle, place, -2
+Stelle, place, -3
 Stimme, voice, 0
 suchen, to search, 0
 Tag, day, 0
 Tisch, table, 0
-Tür, door, -2
+Tür, door, -1
 vergleichen, to compare, 0
 verlassen, to leave, 0
 völlig, complete, 0
