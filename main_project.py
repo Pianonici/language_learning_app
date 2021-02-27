@@ -100,9 +100,10 @@ def grammar_mode():
     be_is = {"Ich": "bin", "Du": "bist", "Er": "ist", "Sie": "ist", "Es": "ist"}
     be_are = {"Wir": "sind", "Ihr": "seid", "Sie": "sind"}
     while True:
-        sentences = input(
-            "Please write a text that consists of several sentences only using a pronoun and the verb "
-            "'to be' in German: ")
+        sentences = input('''
+            Please write a text that consists of several sentences
+            only using a pronoun and the verb "to be" in German: 
+            ''')
         # .split(".") returns a list of sentences separated by "."
         list_of_sentences = [sentence for sentence in sentences.split(".") if sentence.strip()]  # omit empty sentences
         for sentence in list_of_sentences:
@@ -114,16 +115,16 @@ def grammar_mode():
             # string, putting a " " between the elements
             remainder_of_sentence = " ".join(sentence.split()[2:])
             if pronoun in be_is and verb == be_is[pronoun]:
-                print("Your conjugation of the verb to be was correct!")
+                print('Your conjugation of the verb "to be" was correct!')
             elif pronoun in be_are and verb == be_are[pronoun]:
-                print("Your conjugation of the verb to be was correct!")
+                print('Your conjugation of the verb "to be" was correct!')
             elif pronoun in be_is and verb != be_is[pronoun]:
                 print(
-                    f'Your conjugation of the verb to be was incorrect. The correct conjugation is "{pronoun} '
+                    f'Your conjugation of the verb "to be" was incorrect. The correct conjugation is "{pronoun} '
                     f'{be_is[pronoun]} {remainder_of_sentence}".')
             elif pronoun in be_are and verb != be_are[pronoun]:
                 print(
-                    f'Your conjugation of the verb to be was incorrect. The correct conjugation is "{pronoun} '
+                    f'Your conjugation of the verb "to be" was incorrect. The correct conjugation is "{pronoun} '
                     f'{be_are[pronoun]} {remainder_of_sentence}".')
             else:
                 print("Incorrect input. The first word should be a pronoun and the second one a form "
@@ -203,14 +204,14 @@ if __name__ == "__main__":
         the Mad Libs Game (M)
         ''')
 
-        selected_mode = input("choose a mode (D, V, G, M), or type 'exit' to exit: ").lower()
+        selected_mode = input('choose a mode (D, V, G, M), or type "exit" to exit: ').lower()
         if selected_mode == 'd':
             dictionary_mode()
         elif selected_mode == 'v':
             vocabulary_trainer_mode()
-        elif selected_mode == "g":
+        elif selected_mode == 'g':
             grammar_mode()
-        elif selected_mode == "m":
+        elif selected_mode == 'm':
             mad_libs_game_mode()
         elif selected_mode == 'exit':
             break
