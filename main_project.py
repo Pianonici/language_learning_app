@@ -66,7 +66,7 @@ def vocabulary_trainer_mode():
                 language = chosen_language
 
             if language == 'g':
-                user_translation = input(f'what is the English translation of {german_word}?')
+                user_translation = input(f'what is the English translation of {german_word}? ')
                 if user_translation == english_word:
                     user_progress.add_point(german_word, english_word)
                     print("Correct!")
@@ -79,7 +79,7 @@ def vocabulary_trainer_mode():
                     user_progress.subtract_point(german_word, english_word)
                     print(f'This was not the correct translation. The correct translation is: {english_word}')
             elif language == 'e':
-                user_translation = input(f'what is the German translation of {english_word}?')
+                user_translation = input(f'what is the German translation of {english_word}? ')
                 if user_translation == german_word:
                     user_progress.add_point(german_word, english_word)
                     print("Correct!")
@@ -127,8 +127,8 @@ def grammar_mode():
                     f'Your conjugation of the verb "to be" was incorrect. The correct conjugation is "{pronoun} '
                     f'{be_are[pronoun]} {remainder_of_sentence}".')
             else:
-                print("Incorrect input. The first word should be a pronoun and the second one a form "
-                      "of to be in German.")
+                print('Incorrect input. The first word should be a pronoun and the second one a form '
+                      'of "to be" in German.')
         next_choice = input("Do you want to practice another sentence (Y/N)? ").lower()
         if next_choice == "y":
             continue
