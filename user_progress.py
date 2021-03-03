@@ -54,12 +54,12 @@ class UserProgress(object):
             if self._score_to_words[current_score] == []:  # if the tuple was the last word of the list
                 self._score_to_words.pop(current_score)  # delete the key-value-pair
             if current_score + 1 in self._score_to_words:
-                self._score_to_words[current_score + 1].append(combined_word)
                 # append the tuple to the new score list if list already exists
+                self._score_to_words[current_score + 1].append(combined_word)
             else:
-                self._score_to_words[current_score + 1] = [combined_word]
                 # if new score list does not already exist, create new list
-
+                self._score_to_words[current_score + 1] = [combined_word]
+                
     def subtract_point(self, german_word, english_word):
         combined_word = (german_word, english_word)
         if combined_word in self._word_to_score:
@@ -69,12 +69,12 @@ class UserProgress(object):
             if self._score_to_words[current_score] == []:  # if the tuple was the last word of the list
                 self._score_to_words.pop(current_score)  # delete the key-value-pair
             if current_score - 1 in self._score_to_words:
-                self._score_to_words[current_score - 1].append(combined_word)
                 # append the tuple to the new score list if list already exists
+                self._score_to_words[current_score - 1].append(combined_word)
             else:
-                self._score_to_words[current_score - 1] = [combined_word]
                 # if new score list does not already exist, create new list
-
+                self._score_to_words[current_score - 1] = [combined_word]
+                
     # write the user's progress to a file
     def save_progress(self):
         file = self._filepath.open('w+', encoding='utf8')
