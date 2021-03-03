@@ -38,7 +38,7 @@ class UserProgress(object):
 
         # if you do not already have user progress for a word, map it to a score of -1
         # using the dictionary, set score of all new words to be one less than the worst score
-        for entry in german_to_english_dictionary.items():
+        for entry in german_to_english_dictionary.items(): # .items() returns a list consisting of tuples
             if entry not in self._word_to_score:
                 self._word_to_score[entry] = lowest_score - 1
                 if lowest_score - 1 not in self._score_to_words:
