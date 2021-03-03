@@ -13,6 +13,7 @@ def dictionary_mode():
             word_to_translate = input("which word do you want to translate? ")
             translate_result = (
                 dictionary.german_to_english(word_to_translate))  # returns None if the word is not in the dictionary
+            # defined in dictionary that this gets a german word and returns the english one
             if translate_result is not None:
                 print(translate_result)
             else:
@@ -21,11 +22,13 @@ def dictionary_mode():
             word_to_translate = input("which word do you want to translate? ")
             translate_result = (
                 dictionary.english_to_german(word_to_translate))  # returns None if the word is not in the dictionary
+            # defined in dictionary that this gets a english word and returns the german one
             if translate_result is not None:
                 print(translate_result)
             else:
                 print("The word you want to translate is not in the dictionary.")
         next_choice = input("Do you want to translate another word (Y/N)? ").lower()
+        # .lower() accepts Y and y
         if next_choice == 'y':
             continue
         if next_choice == 'n':
@@ -39,7 +42,7 @@ def vocabulary_trainer_mode():
     First you have to provide your username in order to save your progress. 
     Then you will decide which language to translate from. 
     While translating, if you want to exit, just type "exit".
-    ''')
+    ''')  # more easy to read wit 3x' -> stands out
     user_name = input('Username: ')  # to save the users' progress
 
     # the dictionary_german_to_english is needed to track the user progress for each word
@@ -67,6 +70,7 @@ def vocabulary_trainer_mode():
 
             if language == 'g':
                 user_translation = input(f'what is the English translation of {german_word}? ')
+                # f string so that we can work with variables -> defined in dictionary
                 if user_translation == english_word:
                     user_progress.add_point(german_word, english_word)
                     print("Correct!")
@@ -99,6 +103,7 @@ def grammar_mode():
      ''')
     be_is = {"Ich": "bin", "Du": "bist", "Er": "ist", "Sie": "ist", "Es": "ist"}
     be_are = {"Wir": "sind", "Ihr": "seid", "Sie": "sind"}
+    # we need both as Sie ist and Sie sind is possible
     while True:
         sentences = input('Please write a text that consists of several sentences '
                           'only using a pronoun and the verb "to be" in German: \n')
@@ -112,6 +117,7 @@ def grammar_mode():
             # " ".join(sentence.split()[2:]) takes a list of all the words after the verb and combines them into a
             # string, putting a " " between the elements
             remainder_of_sentence = " ".join(sentence.split()[2:])
+            # so that we can later print the correct sentence if the user made a mistake
             if pronoun in be_is and verb == be_is[pronoun]:
                 print('Your conjugation of the verb "to be" was correct!')
             elif pronoun in be_are and verb == be_are[pronoun]:
@@ -144,7 +150,7 @@ def mad_libs_game_mode():
         dictionary = Dictionary("words.txt")
         # the dictionary_german_to_english is needed to track the user progress for each word
         user_progress = UserProgress(user_name, dictionary.dictionary_german_to_english)
-        # known_words are English words with a score of at least 5
+        # known_words are English words with a score of at least 5 -> defined in user_progress
         known_words = user_progress.get_known_words_list()
         random.shuffle(known_words)
 
@@ -161,6 +167,7 @@ def mad_libs_game_mode():
                 list_known_verbs.append(element)
 
         # Fill in lists with random words if needed.
+        # as we need 2 nouns, 3 adjectives and 1 verb in our example
         while len(list_known_nouns) < 2:
             list_known_nouns.append(dictionary.random_english_noun())
         random.shuffle(list_known_nouns)
@@ -172,6 +179,7 @@ def mad_libs_game_mode():
         random.shuffle(list_known_verbs)
 
         # Fix determiner if the word starts with a vowel.
+        # Would that be possible with 1 function? and why do we need [0][0] eg? and why two times adj?
         determiner1 = 'an' if list_known_nouns[0][0] in 'aeiou' else 'a'
         determiner2 = 'an' if list_known_adj[1][0] in 'aeiou' else 'a'
         determiner3 = 'an' if list_known_adj[2][0] in 'aeiou' else 'a'

@@ -36,12 +36,14 @@ class Dictionary(object):
     def german_to_english(self, word):
         if word in self.dictionary_german_to_english:
             return self.dictionary_german_to_english[word]
+        # using self.dictionary_german_to_english[german_word] = english_word from before
         else:
             return None
 
     def english_to_german(self, word):
         if word in self.dictionary_english_to_german:
             return self.dictionary_english_to_german[word]
+        # using self.dictionary_english_to_german[english_word] = german_word from before
         else:
             return None
 
