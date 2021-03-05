@@ -49,7 +49,8 @@ class Dictionary(object):
 
     # The following 2 functions are used to get random words (keys) from the dictionary
     def random_german_word(self):
-        return random.choice(list(self.dictionary_german_to_english.keys())) # converting .keys() to a list becase random.choice takes a list
+        return random.choice(list(self.dictionary_german_to_english.keys()))
+        # converting .keys() to a list because random.choice takes a list
 
     def random_english_word(self):
         return random.choice(list(self.dictionary_english_to_german.keys()))
