@@ -27,7 +27,7 @@ class UserProgress(object):
                         lowest_score = score
                     combined_word = (german_word, english_word)  # creating tuple
                     self._word_to_score[combined_word] = score  # map tuple to score
-                    if score in self._score_to_words:
+                    if score in self._score_to_words: # if score already exists
                         self._score_to_words[score].append(combined_word)
                         # appending the tuple to the list of words with same score
                     else:
@@ -38,7 +38,7 @@ class UserProgress(object):
 
         # if you do not already have user progress for a word, map it to a score of -1
         # using the dictionary, set score of all new words to be one less than the worst score
-        for entry in german_to_english_dictionary.items(): # .items() returns a list consisting of tuples
+        for entry in german_to_english_dictionary.items():  # .items() returns a list consisting of tuples (all combined words)
             if entry not in self._word_to_score:
                 self._word_to_score[entry] = lowest_score - 1
                 if lowest_score - 1 not in self._score_to_words:
@@ -145,6 +145,7 @@ class UserProgress(object):
         lowest_score = min(self._score_to_words.keys())
         return copy(self._score_to_words[lowest_score])
 
+    #storing words with a total score of at least 5 in a list.
     def get_known_words_list(self):  # for mad_libs game
         known_words = []
         for combined_word, score in self._word_to_score.items():
