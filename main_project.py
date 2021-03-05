@@ -179,7 +179,6 @@ def mad_libs_game_mode():
         random.shuffle(list_known_verbs)
 
         # Fix determiner if the word starts with a vowel.
-        # Would that be possible with 1 function? and why do we need [0][0] eg? and why two times adj?
         determiner1 = 'an' if list_known_nouns[0][0] in 'aeiou' else 'a'
         determiner2 = 'an' if list_known_adj[1][0] in 'aeiou' else 'a'
         determiner3 = 'an' if list_known_adj[2][0] in 'aeiou' else 'a'
